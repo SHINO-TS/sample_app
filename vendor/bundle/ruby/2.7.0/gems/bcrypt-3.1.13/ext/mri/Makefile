@@ -12,12 +12,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /C/Ruby27/include/ruby-2.7.0
+topdir = /C/Ruby27-x64/include/ruby-2.7.0
 hdrdir = $(topdir)
-arch_hdrdir = C:/Ruby27/include/ruby-2.7.0/i386-mingw32
+arch_hdrdir = C:/Ruby27-x64/include/ruby-2.7.0/x64-mingw32
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/C/Ruby27
+prefix = $(DESTDIR)/C/Ruby27-x64
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20210104-3296-a9u2wo
-sitelibdir = $(DESTDIR)./.gem.20210104-3296-a9u2wo
+sitearchdir = $(DESTDIR)./.gem.20210114-9784-x3mzuv
+sitelibdir = $(DESTDIR)./.gem.20210114-9784-x3mzuv
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -64,8 +64,8 @@ archdir = $(rubyarchdir)
 
 
 CC_WRAPPER = 
-CC = i686-w64-mingw32-gcc
-CXX = i686-w64-mingw32-g++
+CC = x86_64-w64-mingw32-gcc
+CXX = x86_64-w64-mingw32-g++
 LIBRUBY = lib$(RUBY_SO_NAME).dll.a
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
@@ -87,7 +87,7 @@ CFLAGS   = $(CCDLFLAGS) -O3 -fno-fast-math -fstack-protector-strong $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = -D_FILE_OFFSET_BITS=64
 CPPFLAGS = -D__SKIP_GNU -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT $(DEFS) $(cppflags)
-CXXFLAGS = $(CCDLFLAGS) -march=i686 -mtune=generic -O2 -pipe $(ARCH_FLAG)
+CXXFLAGS = $(CCDLFLAGS) -march=x86-64 -mtune=generic -O2 -pipe $(ARCH_FLAG)
 ldflags  = -L. -pipe -s -fstack-protector-strong
 dldflags = -pipe -s -fstack-protector-strong -Wl,--enable-auto-image-base,--enable-auto-import $(DEFFILE) 
 ARCH_FLAG = 
@@ -98,14 +98,14 @@ AR = ar
 EXEEXT = .exe
 
 RUBY_INSTALL_NAME = $(RUBY_BASE_NAME)
-RUBY_SO_NAME = msvcrt-ruby270
+RUBY_SO_NAME = x64-msvcrt-ruby270
 RUBYW_INSTALL_NAME = $(RUBYW_BASE_NAME)
 RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
-arch = i386-mingw32
-sitearch = i386-msvcrt
+arch = x64-mingw32
+sitearch = x64-msvcrt
 ruby_version = 2.7.0
 ruby = $(bindir)/$(RUBY_BASE_NAME)
 RUBY = $(ruby)

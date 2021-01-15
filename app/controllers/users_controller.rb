@@ -17,11 +17,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 def create
-  @user = User.new(user_params)  # 実装は終わっていないことに注意!
+  @user = User.new(user_params) 
       if @user.save
         @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to @user
 
         # 保存の成功をここで扱う。
       else
@@ -71,17 +71,7 @@ def create
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-    
     # beforeアクション
-
-    # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
       # 正しいユーザーかどうか確認
       def correct_user
         @user = User.find(params[:id])

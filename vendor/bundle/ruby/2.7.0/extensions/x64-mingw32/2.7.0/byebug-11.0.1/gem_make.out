@@ -1,0 +1,43 @@
+current directory: C:/Users/jaxab/environment/sample_app/vendor/bundle/ruby/2.7.0/gems/byebug-11.0.1/ext/byebug
+C:/Ruby27-x64/bin/ruby.exe -I C:/Ruby27-x64/lib/ruby/2.7.0 -r ./siteconf20210114-9784-16km4oh.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/jaxab/environment/sample_app/vendor/bundle/ruby/2.7.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: C:/Users/jaxab/environment/sample_app/vendor/bundle/ruby/2.7.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR="
+generating byebug-x64-mingw32.def
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+context.c: In function 'call_with_debug_inspector':
+context.c:190:20: warning: passing argument 1 of 'rb_ensure' from incompatible pointer type [-Wincompatible-pointer-types]
+  190 |   return rb_ensure(open_debug_inspector, (VALUE)data, close_debug_inspector,
+      |                    ^~~~~~~~~~~~~~~~~~~~
+      |                    |
+      |                    VALUE (*)(struct call_with_inspection_data *) {aka long long unsigned int (*)(struct call_with_inspection_data *)}
+In file included from C:/Ruby27-x64/include/ruby-2.7.0/ruby.h:33,
+                 from byebug.h:4,
+                 from context.c:1:
+C:/Ruby27-x64/include/ruby-2.7.0/ruby/ruby.h:1990:17: note: expected 'VALUE (*)(VALUE)' {aka 'long long unsigned int (*)(long long unsigned int)'} but argument is of type 'VALUE (*)(struct call_with_inspection_data *)' {aka 'long long unsigned int (*)(struct call_with_inspection_data *)'}
+ 1990 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                 ^~~~~~~~~~~~~~~
+context.c:190:55: warning: passing argument 3 of 'rb_ensure' from incompatible pointer type [-Wincompatible-pointer-types]
+  190 |   return rb_ensure(open_debug_inspector, (VALUE)data, close_debug_inspector,
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~
+      |                                                       |
+      |                                                       VALUE (*)(struct call_with_inspection_data *) {aka long long unsigned int (*)(struct call_with_inspection_data *)}
+In file included from C:/Ruby27-x64/include/ruby-2.7.0/ruby.h:33,
+                 from byebug.h:4,
+                 from context.c:1:
+C:/Ruby27-x64/include/ruby-2.7.0/ruby/ruby.h:1990:39: note: expected 'VALUE (*)(VALUE)' {aka 'long long unsigned int (*)(long long unsigned int)'} but argument is of type 'VALUE (*)(struct call_with_inspection_data *)' {aka 'long long unsigned int (*)(struct call_with_inspection_data *)'}
+ 1990 | VALUE rb_ensure(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE),VALUE);
+      |                                       ^~~~~~~~~~~~~~~
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: C:/Users/jaxab/environment/sample_app/vendor/bundle/ruby/2.7.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20210114-9784-1iccjf4/byebug
